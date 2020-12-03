@@ -1,14 +1,11 @@
 from time import time
 from subprocess import call
 from re import fullmatch
-try:
-    from src.controllers.controllers import *
-except:
-    from controllers.controllers import *
+from src.controllers.controllers import *
 if OS == "Windows":
     from msvcrt import getche, getch
 else:
-    # from getch import getche, getch
+    from getch import getche, getch
     pass
 
 
@@ -28,7 +25,7 @@ def decimal2binary():
     x_position = 2
     y_position = 10
     binary_list = []
-    while decimal > 1:
+    while decimal >= 1:
         gotoxy(x_position, y_position)
         operation = f"{decimal} │ 2"
         print(operation)
@@ -44,10 +41,8 @@ def decimal2binary():
         y_position += 1
         x_position += 4
     gotoxy(x_position, y_position)
-    print(1)
 
     center_print("Número binario.", y_position+2)
-    binary_list.append(1)
     binary_number = ""
     for n in binary_list[::-1]:
         binary_number += str(n)
@@ -92,7 +87,7 @@ def decimal2hex():
     x_position = 2
     y_position = 10
     hexadecimal_list = []
-    while decimal > 1:
+    while decimal >= 1:
         gotoxy(x_position, y_position)
         operation = f"{decimal} │ 16"
         print(operation)
@@ -108,16 +103,12 @@ def decimal2hex():
         y_position += 1
         x_position += 4
     gotoxy(x_position, y_position)
-    print(decimal)
-    hexadecimal_list.append(decimal)
 
     center_print("Número hexadecimal.", y_position+2)
-    hexadecimal_number = ""
     specials_hex = {"10": "A", "11": "B", "12": "C",
                     "13": "D", "14": "E", "15": "F"}
+    hexadecimal_number = ""
     for n in hexadecimal_list[::-1]:
-        if n < 1:
-            continue
         if n >= 10:
             hexadecimal_number += specials_hex[str(n)]
             continue
