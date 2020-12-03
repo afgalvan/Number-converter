@@ -12,6 +12,14 @@ else:
     pass
 
 
+def keep_doing():
+    key_pressed = ord(getch())
+    clear()
+    if key_pressed == 27:
+        return 0
+    return 1
+
+
 def decimal2binary():
     clear()
     center_print("DECIMAL A BINARIO", 5)
@@ -46,8 +54,7 @@ def decimal2binary():
     center_print(binary_number, y_position+3)
     print()
 
-    getch()
-    clear()
+    return keep_doing()
 
 
 def binary2decimal():
@@ -74,8 +81,7 @@ def binary2decimal():
     center_print(bar, y_position)
     center_print(str(decimal_number), y_position + 1)
     print()
-    getch()
-    clear()
+    return keep_doing()
 
 
 def decimal2hex():
@@ -118,24 +124,28 @@ def decimal2hex():
         hexadecimal_number += str(n)
     center_print(hexadecimal_number, y_position+3)
     print()
-
-    getch()
-    clear()
+    return keep_doing()
 
 
 def hex2decimal():
     clear()
     center_print("HEXADECIMAL A DECIMAL", 5)
     while True:
-        hexadecimal = ask_value(8, str)
-        if fullmatch("[0-9ABCDEF]+", str(hexadecimal)):
+        hexadecimal = ask_value(8, str).upper()
+        if fullmatch("[1-9ABCDEF]+", str(hexadecimal)):
             break
-        error_print("Sólo ingrese 1-0", "c", 10)
+        error_print("Valores inválidos.", "c", 10)
         clear_input(23, 8)
+
+    specials_hex = {"A": "10", "B": "11", "C": "12",
+                    "D": "13", "E": "14", "F": "15"}
+
+    hexa_list = [value for value in hexadecimal]
+    hexa_list = [specials_hex[n] if not n.isdigit() else n for n in hexa_list]
 
     y_position = 10
     decimal_number = 0
-    for power, n in enumerate(str(hexadecimal)[::-1]):
+    for power, n in enumerate(hexa_list[::-1]):
         power_result = 16 ** power
         hex_acumulator = int(n) * power_result
         decimal_number += hex_acumulator
@@ -147,9 +157,8 @@ def hex2decimal():
     center_print(bar, y_position)
     center_print(str(decimal_number), y_position + 1)
     print()
-    getch()
-    clear()
+    return keep_doing()
 
 
 if __name__ == "__main__":
-    decimal2hex()
+    hex2decimal()

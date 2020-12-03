@@ -8,26 +8,31 @@ else:
 
 def show_options(stdscr, current_option):
     options = ("🔥 Decimal -> Binario 🔥", "Binario -> Decimal", "Decimal -> Hex",
-               "Hex -> Binario", "Binario -> Hex", "Volver al menú")
+               "Hex -> Decimal", "Volver al menú")  # "Binario -> Hex", "Hex -> Binario",
 
+    calculate = 1
     current_option = menu_displayer(
         stdscr, options, "CONVERSION TYPE", current_option)
     if current_option == 0:
         stdscr.clear()
         curses.endwin()
-        decimal2binary()
+        while calculate:
+            calculate = decimal2binary()
     elif current_option == 1:
         stdscr.clear()
         curses.endwin()
-        binary2decimal()
+        while calculate:
+            calculate = binary2decimal()
     elif current_option == 2:
         stdscr.clear()
         curses.endwin()
-        decimal2hex()
+        while calculate:
+            calculate = decimal2hex()
     elif current_option == 3:
         stdscr.clear()
         curses.endwin()
-        hex2decimal()
+        while calculate:
+            calculate = hex2decimal()
     elif current_option == len(options)-1:
         stdscr.clear()
         return 0
