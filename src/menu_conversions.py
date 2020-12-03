@@ -16,6 +16,18 @@ def show_options(stdscr, current_option):
         stdscr.clear()
         curses.endwin()
         decimal2binary()
+    elif current_option == 1:
+        stdscr.clear()
+        curses.endwin()
+        binary2decimal()
+    elif current_option == 2:
+        stdscr.clear()
+        curses.endwin()
+        decimal2hex()
+    elif current_option == 3:
+        stdscr.clear()
+        curses.endwin()
+        hex2decimal()
     elif current_option == len(options)-1:
         stdscr.clear()
         return 0

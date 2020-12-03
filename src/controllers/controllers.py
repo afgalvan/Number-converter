@@ -138,14 +138,20 @@ def scan(question="", var_type=str):
         return None
 
 
-def ask_value(line: int):
+def ask_value(line: int, typeof):
     while True:
         center_print("Número para convertir: ", line)
-        numeric_value = scan("", int)
+        numeric_value = scan("", typeof)
         if numeric_value != None:
             break
         error_print("Sólo ingrese números", "c", line + 2)
-        gotoxy(center_x+23, line)
-        stdout.write(" " * 30)
+        clear_input(23, 8)
+
+    center_print(" " * 30, 10)
 
     return numeric_value
+
+
+def clear_input(question_len: int, line: int):
+    gotoxy(center_x+question_len, line)
+    stdout.write(" " * 30)
