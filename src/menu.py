@@ -15,7 +15,7 @@ def main_menu(stdscr, current_option):
     options = ("Convertir números", "Más información", "Salir")
 
     current_option = menu_displayer(
-        stdscr, options, "PANELITA", current_option)
+        stdscr, options, "Bytes", current_option)
     if current_option == 0:
         show_options(stdscr, 0)
     elif current_option == 1:

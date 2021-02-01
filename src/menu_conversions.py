@@ -17,22 +17,22 @@ def show_options(stdscr, current_option):
         stdscr.clear()
         curses.endwin()
         while calculate:
-            calculate = decimal2binary()
+            calculate = decimal_to_binary()
     elif current_option == 1:
         stdscr.clear()
         curses.endwin()
         while calculate:
-            calculate = binary2decimal()
+            calculate = binary_to_decimal()
     elif current_option == 2:
         stdscr.clear()
         curses.endwin()
         while calculate:
-            calculate = decimal2hex()
+            calculate = decimal_to_hex()
     elif current_option == 3:
         stdscr.clear()
         curses.endwin()
         while calculate:
-            calculate = hex2decimal()
+            calculate = hex_to_decimal()
     elif current_option == len(options)-1:
         stdscr.clear()
         return 0
