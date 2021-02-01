@@ -138,7 +138,7 @@ def scan(question="", var_type=str):
         return None
 
 
-def ask_value(line: int, typeof):
+def ask_value(line: int, typeof=str):
     while True:
         center_print("Número para convertir: ", line)
         numeric_value = scan("", typeof)
