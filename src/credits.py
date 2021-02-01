@@ -16,7 +16,7 @@ Copyright (C) 2020 by Andrés Galván
 
 
 def more_info(stdscr, current_option):
-    URL = "https://github.com/JuniorWriter"
+    URL = "https://github.com/afgalvan"
     options = ("Créditos", "Github", "Licencia", "Volver al menú")
 
     current_option = menu_displayer(
